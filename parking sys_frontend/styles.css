@@ -1,0 +1,246 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f9f8;
+    color: #2d3436;
+    overflow-x: hidden;
+}
+
+/* Header Section */
+.hero {
+    background-color: #2d3436;
+    color: #fff;
+    text-align: center;
+    padding: 100px 20px;
+    position: relative;
+    border-bottom: 10px solid #e17055;
+}
+
+.hero-content {
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeInUp 1.5s ease-out;
+}
+
+.hero-title {
+    font-size: 3.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #e17055;
+    text-transform: uppercase;
+}
+
+.hero-desc {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+    color: #dfe6e9;
+}
+
+.cta-btn {
+    background-color: #e17055;
+    color: #fff;
+    padding: 18px 36px;
+    border-radius: 50px;
+    font-size: 1.3em;
+    text-decoration: none;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #dfe6e9;
+    color: #2d3436;
+    transform: translateY(-8px);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    position: absolute;
+    top: 20px;
+    width: 100%;
+}
+
+.navbar .logo {
+    font-size: 2.5em;
+    font-weight: 600;
+    color: white;
+}
+
+.nav-links a {
+    margin-left: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #e17055;
+}
+
+/* Features Section */
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 80px 40px;
+    background-color: #fff;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.feature-card {
+    background-color: #f7f7f7;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.feature-card h3 {
+    font-size: 1.8em;
+    color: #e17055;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #636e72;
+    font-size: 1.1em;
+}
+
+/* Testimonials Section */
+.testimonials {
+    background-color: #e17055;
+    padding: 60px 20px;
+    text-align: center;
+    color: white;
+}
+
+.testimonials h2 {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 40px;
+}
+
+.testimonial-card {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    margin: 20px;
+    width: 80%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+.testimonial-card p {
+    font-size: 1.2em;
+    font-style: italic;
+    color: #636e72;
+}
+
+.testimonial-card strong {
+    font-size: 1.1em;
+    color: #2d3436;
+}
+
+/* Call to Action Section */
+.cta {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: #2d3436;
+    color: white;
+}
+
+.cta h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.cta p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+}
+
+.cta-btn {
+    background-color: #e17055;
+    color: #fff;
+    padding: 18px 36px;
+    border-radius: 50px;
+    font-size: 1.3em;
+    text-decoration: none;
+    box-shadow: 0 15px 30px rgba(255, 126, 95, 0.2);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.cta-btn:hover {
+    background-color: #dfe6e9;
+    color: #2d3436;
+    transform: translateY(-8px);
+}
+
+/* Footer Section */
+.footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #2d3436;
+    color: white;
+    font-size: 1.1em;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .features {
+        grid-template-columns: 1fr;
+        padding: 40px 20px;
+    }
+
+    .feature-card {
+        width: 80%;
+        margin: 20px auto;
+    }
+
+    .hero-title {
+        font-size: 2.8em;
+    }
+
+    .hero-desc {
+        font-size: 1.3em;
+    }
+
+    .cta-btn {
+        font-size: 1.1em;
+    }
+
+    .testimonial-card {
+        width: 90%;
+    }
+}
