@@ -1,0 +1,203 @@
+/* Global Reset and Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #FFF8F0;  /* Soft off-white background */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Dashboard Main Container */
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #1E1E24;  /* Dark grayish-blue text */
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    font-size: 2rem;
+    color: #92140C;  /* Deep red for subheadings */
+    margin-bottom: 20px;
+}
+
+/* Available Spots Section */
+#available-spots {
+    margin-bottom: 40px;
+}
+
+#spots-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#spots-list li {
+    background: #1E1E24;  /* Dark grayish-blue for list items */
+    color: white;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 1.2rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#spots-list li:hover {
+    background: #92140C;  /* Deep red hover effect */
+    transform: translateY(-10px);
+}
+
+/* Booking Section */
+#book-spot {
+    background: #FFF8F0;  /* Soft off-white background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#book-spot-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+#book-spot-form .input-field,
+#book-spot-form select,
+#book-spot-form button {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.3s ease;
+    background: #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+#book-spot-form .input-field:focus,
+#book-spot-form select:focus {
+    border-color: #92140C;  /* Deep red border on focus */
+    box-shadow: 0 0 10px rgba(146, 20, 12, 0.5);
+}
+
+#book-spot-form button {
+    background: #92140C;  /* Deep red button */
+    color: white;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease, transform 0.2s ease;
+}
+
+#book-spot-form button:hover {
+    background: #1E1E24;  /* Dark grayish-blue on hover */
+    transform: translateY(-5px);
+}
+
+/* Booking Confirmation Message */
+#booking-message {
+    font-size: 1.1rem;
+    color: #e74c3c;  /* Red color for error messages */
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    #book-spot-form .input-field,
+    #book-spot-form button {
+        font-size: 0.9rem;
+    }
+
+    #spots-list li {
+        font-size: 1.1rem;
+    }
+
+    #book-spot-form {
+        gap: 15px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dashboard-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    #spots-list li {
+        font-size: 1rem;
+        padding: 15px;
+    }
+
+    #book-spot-form .input-field,
+    #book-spot-form button {
+        font-size: 0.85rem;
+    }
+}

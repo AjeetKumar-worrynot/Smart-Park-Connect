@@ -1,0 +1,192 @@
+/* Global Reset and Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: #f7f7f7; /* Light background color for whole page */
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.dashboard-container {
+    width: 100%;
+    max-width: 1200px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    animation: fadeInUp 1s ease-out;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    color: #1E1E24;
+    margin-bottom: 10px;
+}
+
+/* Create Spot Form */
+#create-spot {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+#create-spot-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.input-group {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.input-group input,
+.input-group select,
+#create-spot-form button {
+    width: 100%;
+    padding: 15px;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    outline: none;
+    transition: 0.3s ease;
+    background-color: #fafafa;
+}
+
+.input-group input:focus,
+.input-group select:focus {
+    border-color: #1E1E24;
+    box-shadow: 0 0 5px rgba(30, 30, 36, 0.5);
+}
+
+#create-spot-form button {
+    background-color: #1E1E24;
+    color: #fff;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s ease, transform 0.2s ease;
+}
+
+#create-spot-form button:hover {
+    background-color: #92140C;
+    transform: translateY(-3px);
+}
+
+/* Manage Users Table */
+#manage-users {
+    background: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.table-container {
+    overflow-x: auto;
+    margin-top: 20px;
+}
+
+#users-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#users-table th,
+#users-table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+#users-table th {
+    background-color: #1E1E24;
+    color: #fff;
+}
+
+#users-table tbody tr:hover {
+    background-color: #f2f2f2;
+    cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .dashboard-container {
+        padding: 30px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .input-group input,
+    .input-group select,
+    #create-spot-form button {
+        font-size: 0.9rem;
+    }
+
+    #users-table th,
+    #users-table td {
+        font-size: 0.9rem;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .dashboard-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .input-group input,
+    .input-group select,
+    #create-spot-form button {
+        font-size: 0.8rem;
+    }
+
+    #users-table th,
+    #users-table td {
+        font-size: 0.8rem;
+    }
+}

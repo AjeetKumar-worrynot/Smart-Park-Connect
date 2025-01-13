@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="user.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <div class="header">
+      <h1>User Dashboard</h1>
+    </div>
+
+    <!-- Available Parking Spots -->
+    <section id="available-spots" class="section">
+      <h2 class="section-title">Available Parking Spots</h2>
+      <ul id="spots-list" class="spots-list"></ul>
+    </section>
+
+    <!-- Book Parking Spot -->
+    <section id="book-spot" class="section">
+      <h2 class="section-title">Book a Parking Spot</h2>
+      <form id="book-spot-form">
+        <select id="spot-id" class="input-field" required></select>
+        <input type="date" id="bookingDate" class="input-field" required>
+        <input type="time" id="bookingTime" class="input-field" required>
+        <button type="submit" class="btn">Book Spot</button>
+      </form>
+      <div id="booking-message" class="booking-message"></div>
+    </section>
+  </div>
+
+  <script src="userDashboard.js"></script>
+</body>
+</html>
