@@ -4,8 +4,316 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ParkEasy - Effortless Parking</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            overflow-x: hidden;
+            background-color: #f2f4f3;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: linear-gradient(135deg, #49111c, #0a0908);
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: 600;
+            color: #f2f4f3;
+        }
+
+        .nav-links a {
+            margin: 0 15px;
+            padding: 10px 20px;
+            background-color: transparent;
+            border: 2px solid #f2f4f3;
+            color: #f2f4f3;
+            text-decoration: none;
+            border-radius: 30px;
+            transition: 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #f2f4f3;
+            color: #49111c;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+            padding-top: 80px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .hero-title {
+            font-size: 3em;
+            font-weight: 600;
+            margin: 0;
+            letter-spacing: 3px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInText 2s forwards;
+        }
+
+        .hero-desc {
+            font-size: 1.2em;
+            margin: 20px 0;
+            opacity: 0.8;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #49111c;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 30px;
+            margin-top: 30px;
+            transition: background-color 0.3s ease;
+        }
+
+        .cta-btn:hover {
+            background-color: #0a0908;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #f2f4f3;
+            border-radius: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            margin: 40px auto;
+            max-width: 1200px;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .features h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #49111c;
+            position: relative;
+            z-index: 2;
+            font-weight: bold;
+        }
+
+        .feature-card {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-card h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            color: #49111c;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            padding: 60px 20px;
+            text-align: center;
+            background-color: #49111c;
+            color: #fff;
+            border-radius: 40px;
+            margin-top: 60px;
+            max-width: 1200px;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .testimonial-card {
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            margin: 20px 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            color: #49111c;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .testimonial-card p {
+            font-size: 1.1em;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial-card strong {
+            font-size: 1.2em;
+        }
+
+        /* Organic Shapes - Background */
+        .features:before, .testimonials:before {
+            content: '';
+            position: absolute;
+            top: -150px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150%;
+            height: 300px;
+            background: #f2f4f3;
+            border-radius: 100% 100% 0 0;
+            z-index: -1;
+        }
+
+        .testimonials:before {
+            background: #0a0908;
+            top: -100px;
+            height: 350px;
+        }
+
+        /* Call to Action Section */
+        .cta {
+            background-color: #49111c;
+            color: #fff;
+            padding: 60px 20px;
+            text-align: center;
+            animation: fadeInUp 1.5s ease-out;
+        }
+
+        .cta h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 1.2em;
+            opacity: 0.8;
+        }
+
+        footer {
+            background-color: #0a0908;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9em;
+        }
+
+        /* Responsive Adjustments */
+        @media screen and (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5em;
+            }
+
+            .hero-desc {
+                font-size: 1em;
+            }
+
+            .cta-btn {
+                padding: 12px 25px;
+            }
+
+            .feature-card, .testimonial-card {
+                padding: 25px;
+            }
+
+            .cta {
+                padding: 50px 20px;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .hero-title {
+                font-size: 2em;
+            }
+
+            .hero-desc {
+                font-size: 0.9em;
+            }
+
+            .cta-btn {
+                padding: 10px 20px;
+            }
+
+            .feature-card, .testimonial-card {
+                padding: 20px;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Letter Animations */
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section -->
@@ -24,57 +332,46 @@
         </div>
     </header>
 
-    <!-- Main Content -->
-    <main>
-        <!-- Features Section -->
-        <section class="features">
-            <div class="feature-card" data-aos="fade-up" data-aos-duration="1000">
-                <h2>Quick Booking</h2>
-                <p>Reserve your parking space in seconds—no more wasted time.</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-duration="1000">
-                <h2>Real-Time Updates</h2>
-                <p>Always know the availability of parking spots in real-time.</p>
-            </div>
-            <div class="feature-card" data-aos="fade-up" data-aos-duration="1000">
-                <h2>Secure Payments</h2>
-                <p>Enjoy fast, safe, and seamless payment options for every booking.</p>
-            </div>
-        </section>
+    <!-- Features Section -->
+    <section class="features">
+        <h2>Why Choose ParkEasy?</h2>
+        <div class="feature-card">
+            <h3>Easy Booking</h3>
+            <p>Quickly book parking spots with just a few clicks.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Secure & Reliable</h3>
+            <p>Park with confidence knowing your spot is reserved.</p>
+        </div>
+        <div class="feature-card">
+            <h3>24/7 Availability</h3>
+            <p>Find a parking spot anytime, anywhere.</p>
+        </div>
+    </section>
 
-        <!-- Testimonials Section -->
-        <section class="testimonials">
-            <h2>Our Happy Users</h2>
-            <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000">
-                <p>"ParkEasy made parking in the city so easy. I love the real-time updates!"</p>
-                <strong>- Ajeeth R.</strong>
-            </div>
-            <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000">
-                <p>"Booking a spot has never been quicker. ParkEasy has really changed the game!"</p>
-                <strong>- Madhan D.</strong>
-            </div>
-            <div class="testimonial-card" data-aos="fade-up" data-aos-duration="1000">
-                <p>"The process is simple, fast, and reliable. I’ll never park the old way again."</p>
-                <strong>- Naveen P.</strong>
-            </div>
-        </section>
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <h2>What Our Users Say</h2>
+        <div class="testimonial-card">
+            <p>"ParkEasy made parking so simple and convenient! I never have to worry about finding a spot again."</p>
+            <strong>Madhan</strong>
+        </div>
+        <div class="testimonial-card">
+            <p>"The best parking app out there. Smooth and efficient!"</p>
+            <strong>Ajay</strong>
+        </div>
+    </section>
 
-        <!-- Call to Action Section -->
-        <section class="cta">
-            <h2>Ready to Try ParkEasy?</h2>
-            <p>Join thousands of users already enjoying stress-free parking.</p>
-            
-        </section>
-    </main>
+    <!-- Call to Action Section -->
+    <section class="cta">
+        <h2>Join Us Today</h2>
+        <p>Ready to make parking easy? Sign up now and start booking.</p>
+        <a href="signup.html" class="cta-btn">Get Started</a>
+    </section>
 
-    <!-- Footer Section -->
-    <footer class="footer">
-        <p>&copy; 2025 ParkEasy. All Rights Reserved</p>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 ParkEasy. All rights reserved.</p>
     </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-    <script>
-        AOS.init();
-    </script>
 </body>
 </html>
