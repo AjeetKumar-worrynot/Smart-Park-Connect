@@ -330,6 +330,18 @@
                 transform: translateY(0);
             }
         }
+
+        /* Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 <body>
@@ -352,15 +364,15 @@
     <!-- Features Section -->
     <section class="features">
         <h2>Why Choose ParkEasy?</h2>
-        <div class="feature-card">
+        <div class="feature-card reveal">
             <h3>Easy Booking</h3>
             <p>Quickly book parking spots with just a few clicks.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card reveal">
             <h3>Secure & Reliable</h3>
             <p>Park with confidence knowing your spot is reserved.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card reveal">
             <h3>24/7 Availability</h3>
             <p>Find a parking spot anytime, anywhere.</p>
         </div>
@@ -369,13 +381,13 @@
     <!-- Testimonials Section -->
     <section class="testimonials">
         <h2>What Our Users Say</h2>
-        <div class="testimonial-card">
+        <div class="testimonial-card reveal">
             <p>"ParkEasy made parking so simple and convenient! I never have to worry about finding a spot again."</p>
-            <strong>Madhan</strong>
-        </div>
-        <div class="testimonial-card">
-            <p>"The best parking app out there. Smooth and efficient!"</p>
             <strong>Ajay</strong>
+        </div>
+        <div class="testimonial-card reveal">
+            <p>"The best parking app out there. Smooth and efficient!"</p>
+            <strong>Madhan</strong>
         </div>
     </section>
 
@@ -390,5 +402,33 @@
     <footer>
         <p>&copy; 2025 ParkEasy. All rights reserved.</p>
     </footer>
+
+    <!-- JavaScript for Scroll and Reveal Animations -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            function revealElements() {
+                let elements = document.querySelectorAll(".reveal");
+                elements.forEach(el => {
+                    let rect = el.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 50) {
+                        el.classList.add("active");
+                    }
+                });
+            }
+        
+            window.addEventListener("scroll", revealElements);
+            revealElements(); // Run once on page load
+        
+            // Smooth scrolling for anchor links
+            const scrollLinks = document.querySelectorAll('a[href^="#"]');
+            scrollLinks.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    document.getElementById(targetId).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
